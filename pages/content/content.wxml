@@ -1,0 +1,13 @@
+<import src="../template/template.wxml" />
+<template is="head_content" data="{{menutop,menuheight,active}}" />
+<template is="loading" data="{{loadshow}}"/>
+<view wx:if="{{datashow}}">
+	<view class='img'>
+		<image src="{{arr.img}}"></image>
+	</view>
+	<view class='content'>
+		{{arr.content}}
+	</view>
+	<view class="iconfont icon-fenxiangpengyouquanweixinWeChatsha" bindtap='Canvas' style="{{none}}width: 200rpx;text-align: right;" />
+	<canvas canvas-id='myCanvas' style="width: 750rpx;height:1200rpx;left: 10000rpx;position: fixed;"></canvas>
+</view>

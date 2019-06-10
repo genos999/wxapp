@@ -1,0 +1,151 @@
+page{
+	/*background:red;*/
+}
+.head{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	border-bottom: 2rpx solid #eee;
+	background:#fff;
+	height:180rpx;
+	z-index: 1;
+}
+.top{
+	background:#fff;
+	display: flex;
+	justify-content: space-between;
+	width: 110rpx;
+	margin-left: 30rpx;
+}
+.top image{
+	width: 35rpx;
+	height: 35rpx;
+	padding-top: 12rpx;
+}
+.nav{
+	background:#fff;
+	/*margin-top: 20rpx;*/
+	height: 70rpx;
+	line-height: 70rpx;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	width: 60%;
+	color: #636363;
+}
+.nav .active{
+	border-bottom: 6rpx solid #000;
+	color: #000;
+}
+
+.head_content .top{
+	width: 120rpx;
+}
+.head_content{
+	height: 130rpx;
+}
+
+/*loading*/
+.sk-double-bounce {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 40%;
+  z-index: 99;
+  left: 45%;
+}
+  .sk-double-bounce .sk-child {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background-color: #333;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+            animation: sk-doubleBounce 2s infinite ease-in-out; }
+  .sk-double-bounce .sk-double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s; }
+
+@-webkit-keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+/* 遮罩 */
+.shade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+.shade_box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 11;
+  min-width: 200rpx;
+  min-height: 200rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  color: #333;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+  word-wrap: break-word;
+ 
+  animation-name:popup;
+  animation-duration:0.2s;
+  animation-timing-function:linear;
+  animation-delay:0;
+  animation-iteration-count:1;
+  animation-direction:normal;
+}
+ 
+@keyframes popup
+{
+  from{opacity:0;transform:scale(0.3,0.3);}
+  to  {opacity:1;transform:scale(1,1);}
+}
+ 
+ 
+/* 当前弹窗样式 */
+.popup{
+  width: 600rpx;
+  height: 255rpx;
+  background-color: #ffffff;
+}
+.popup form .q{
+  background:#fff;
+  width: 80%;
+  margin: 40rpx auto;
+  height:60rpx;
+  line-height: 60rpx;
+  border:1rpx solid #ccc;
+  padding: 10rpx;
+}
+.popup .wid100{
+  width: 100%;
+}
+.popup .wid100 button{
+  margin: 0 auto;
+  display: table;
+}

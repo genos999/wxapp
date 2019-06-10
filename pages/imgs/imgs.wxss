@@ -1,0 +1,31 @@
+.main{
+	margin-top: 180rpx;
+	padding: 0 36rpx;
+}
+.arr{
+	width: 320rpx;
+	float: left;
+	height:285rpx;
+	border:2rpx solid #eee;
+	margin:10rpx 0;
+}
+.arr image{
+	width: 320rpx;
+	height:210rpx;
+}
+.arr:nth-child(odd){
+	float:right;
+}
+.arr .time{
+	text-align: center;
+	line-height: 60rpx;
+	font-size:30rpx;
+}
+.catename{
+	color: rgba(0, 0, 0, 0.6);
+    line-height: 50rpx;
+    font-size: 30rpx;
+    text-align: center;
+    padding-top: 30rpx;
+    color: rgba(0, 0, 0, 0.6);
+}

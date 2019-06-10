@@ -1,0 +1,37 @@
+<template name='head'>
+    <view class='head'>
+    	<view class='top' style="margin-top:{{ menutop }}px;height:{{ menuheight }}px;line-height: {{ menuheight }}px;">
+	        <!-- <image src='/img/head.png'></image> -->
+	        <image src='/img/search.png' bindtap="showPopup"></image>
+	    </view>
+	    <view class='nav'>
+	    	<navigator class="{{ active=='index'? 'active' : ''}}" url="/pages/index/index" hover-class='none'>首页</navigator>
+	    	<navigator class="{{ active=='imgs'? 'active' : ''}}" url="/pages/imgs/imgs" hover-class='none'>图文</navigator>
+	    	<navigator class="{{ active=='read'? 'active' : ''}}" url="/pages/read/read" hover-class='none'>阅读</navigator>
+	    </view>
+	    <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
+			<view class='shade_box popup' hidden='{{popup}}'>
+				<form bindsubmit="formSubmit">
+					<input class='q' name="q" placeholder="请输入关键词" />
+					<view class='wid100'>
+						<button form-type="submit" size='mini'>SEARCH</button>
+					</view>
+				</form>
+			</view>
+    	</view>
+</template>
+
+<template name='head_content'>
+    <view class='head head_content'>
+    	<view class='top' style="margin-top:{{ menutop }}px;height:{{ menuheight }}px;line-height: {{ menuheight }}px;">
+	        <image src='/img/return.png' bindtap="back"></image>
+	    </view>
+    </view>	
+</template>
+
+<template name="loading">
+	<view class="sk-double-bounce" wx:if="{{loadshow}}">
+		<view class="sk-child sk-double-bounce1"></view>
+		<view class="sk-child sk-double-bounce2"></view>
+	</view>
+</template>>

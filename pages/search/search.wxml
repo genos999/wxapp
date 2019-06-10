@@ -1,0 +1,17 @@
+<import src="../template/template.wxml" />
+<template is="head_content" data="{{menutop,menuheight}}" />
+<template is="loading" data="{{loadshow}}"/>
+<view class="main" wx:if="{{datashow}}">
+	<view class='catename'>- SEARCH -</view>
+	<block wx:for="{{ arr }}" wx:key="vo">
+		<navigator class='arr' url="/pages/art/art?id={{item.id}}" hover-class='none'>
+			<view class='arr'>
+				<view class="title">{{ item.title }}</view>
+				<view class="author">{{ item.author }}</view>
+				<view class="img"><image src="{{ link }}/{{ item.img }}"></image></view>
+				<view class="desc">{{ item.des }}</view>
+				<view class="author">{{ item.time }}</view>
+			</view>
+		</navigator>
+	</block>
+</view>
