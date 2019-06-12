@@ -149,3 +149,17 @@ page{
   margin: 0 auto;
   display: table;
 }
+.nav button{
+  background-color: #fff;
+  border-radius:0;
+}
+.nav button::after{
+  border:none;
+  /*background:#fff;*/
+}
+.nav button text{
+  background:red;
+  position: absolute;
+  width: 100%;
+  display: block;
+}

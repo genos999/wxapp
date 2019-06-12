@@ -5,9 +5,9 @@
 	        <image src='/img/search.png' bindtap="showPopup"></image>
 	    </view>
 	    <view class='nav'>
-	    	<navigator class="{{ active=='index'? 'active' : ''}}" url="/pages/index/index" hover-class='none'>首页</navigator>
-	    	<navigator class="{{ active=='imgs'? 'active' : ''}}" url="/pages/imgs/imgs" hover-class='none'>图文</navigator>
-	    	<navigator class="{{ active=='read'? 'active' : ''}}" url="/pages/read/read" hover-class='none'>阅读</navigator>
+	    	<button class="{{ active=='index'? 'active' : ''}}" formType="submit" hover-class="none" bindtap='index'>首页</button>
+	    	<button class="{{ active=='imgs'? 'active' : ''}}" formType="submit" hover-class="none" bindtap='imgs'>图文</button>
+	    	<button class="{{ active=='read'? 'active' : ''}}" formType="submit" hover-class="none" bindtap='read'>阅读</button>
 	    </view>
 	    <view class='shade' hidden='{{popup}}' bindtap='hidePopup'></view>
 			<view class='shade_box popup' hidden='{{popup}}'>

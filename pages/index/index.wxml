@@ -1,17 +1,16 @@
 <import src="../template/template.wxml" />
-<template is="head" data="{{menutop,menuheight,active,popup}}" />
-<view class='home-container'>
-    <view class="home-img">
-        <image mode="aspectFill" src="{{arr.img}}" />
-    </view>
-    <view class="home-mask">
-        <view class="home-content">
-          <text class="padder block">{{day}}</text>
-          <text class="padder block m-b-sm home-content-title">{{arr.version}} | {{month}}.{{year}}</text>
-          <text class="padder block m-b-lg home-content-title">{{arr.content}}</text>
-        </view>
-    </view>
-</view>
-<!-- <form name='pushMsgFm' report-submit='true' bindsubmit='getFormID'>
-  <button form-type="submit" class="zan-btn zan-btn--large zan-btn--danger payButton"></button>
-</form> -->
+<form bind:submit="submit" report-submit="true">
+  <template is="head" data="{{menutop,menuheight,active,popup}}" />
+  <view class='home-container'>
+      <view class="home-img">
+          <image mode="aspectFill" src="{{arr.img}}" />
+      </view>
+      <view class="home-mask">
+          <view class="home-content">
+            <text class="padder block">{{day}}</text>
+            <text class="padder block m-b-sm home-content-title">{{arr.version}} | {{month}}.{{year}}</text>
+            <text class="padder block m-b-lg home-content-title">{{arr.content}}</text>
+          </view>
+      </view>
+  </view>
+</form>

@@ -1,7 +1,7 @@
 //app.js
 App({
-  onLaunch: function () {
-
+  onLaunch: function() {
+    
   },
   globalData: {
     menutop: wx.getMenuButtonBoundingClientRect().top,

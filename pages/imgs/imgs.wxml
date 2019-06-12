@@ -1,12 +1,14 @@
 <import src="../template/template.wxml" />
-<template is="head" data="{{menutop,menuheight,active,popup}}" />
-<template is="loading" data="{{loadshow}}"/>
-<view class='main' wx:if="{{datashow}}">
-	<view class='catename'>- IMAGE -</view>
-	<block wx:for='{{arr}}' wx:key="vo">
-		<navigator class='arr' url="/pages/content/content?id={{item.id}}" hover-class='none'>
-			<image src='{{item.img}}'></image>
-			<view class='time'>{{item.time}}</view>	
-		</navigator>
-	</block>
-</view>
+<form bind:submit="submit" report-submit="true">
+	<template is="head" data="{{menutop,menuheight,active,popup}}" />
+	<template is="loading" data="{{loadshow}}"/>
+	<view class='main' wx:if="{{datashow}}">
+		<view class='catename'>- IMAGE -</view>
+		<block wx:for='{{imgs}}' wx:key="vo">
+			<navigator class='arr' url="/pages/content/content?id={{item.id}}" hover-class='none'>
+				<image src='{{item.img}}'></image>
+				<view class='time'>{{item.time}}</view>	
+			</navigator>
+		</block>
+	</view>
+</form>

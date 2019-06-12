@@ -9,12 +9,36 @@ Page({
         day: '',
         month: '',
         year: '',
-        popup: true
+        popup: true,
+        openid:'',
+        oldId:''
     },
     onLoad: function (options) {
         var that = this
-        that.getData()
-        // that.uploadFormIds()
+        var day = util.dateDay(new Date())
+        var month = util.dateMonth(new Date())
+        var year = util.dateYear(new Date())
+        if(!wx.getStorageSync('key')){
+            that.getData()
+        }else{
+            wx.getStorage({
+              key: 'key',
+              success (res) {
+                that.setData({
+                    arr:res.data,
+                    oldId:res.data.id
+                })
+                let oldId = that.data.oldId
+                that.cache(oldId)
+              }
+            })
+            that.setData({
+                day: day,
+                month: month,
+                year: year
+            })
+        }
+        that.openid()
     },
     getData:function(){
         var that = this
@@ -29,7 +53,12 @@ Page({
                     arr:res.data,
                     day: day,
                     month: month,
-                    year: year
+                    year: year,
+                    oldId:res.data.id
+                })
+                wx.setStorage({
+                    key:"key",
+                    data:res.data
                 })
             }
         })
@@ -58,15 +87,65 @@ Page({
         imageUrl:that.data.arr.img
       }
     },
-    getFormID:function(e){
+    submit:function(e){
         var that = this
         let formId = e.detail.formId
+        let openId = that.data.openid
         wx.request({
-            url:app.globalData.link+'/api/index/formid',
+            url:app.globalData.link+'/api/index/dataid',
             method:'POST',
-            data:{formid:formId},
+            data:{formid:formId,openid:openId},
             success(res){
-                console.log(res)
+                
+            }
+        })
+    },
+    imgs:function(){
+        wx.navigateTo({
+            url:'/pages/imgs/imgs'
+        })
+    },
+    read:function(){
+        wx.navigateTo({
+            url:'/pages/read/read'
+        })
+    },
+    index:function(){
+
+    },
+    openid:function(){
+        var that = this
+        wx.login({
+            success:function(res){                
+                let code = res.code
+                wx.request({
+                    url:app.globalData.link+"/api/index/openid",
+                    method:'POST',
+                    data:{code:code},
+                    success(res){
+                        that.setData({
+                            openid:res.data.openid
+                        })
+                    }
+                })
+            }
+        })
+    },
+    cache:function(oldId){
+        var that = this
+        wx.request({
+            url:app.globalData.link+'/api/index/cache',
+            method:'POST',
+            data:{page:'index',oldId:oldId},
+            success(res){
+                if(res.data==1){
+                    wx.removeStorage({
+                        key:"key",
+                        success (res) {
+                            console.log(res)
+                        }
+                    })
+                }
             }
         })
     }
