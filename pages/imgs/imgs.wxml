@@ -6,7 +6,7 @@
 		<view class='catename'>- IMAGE -</view>
 		<block wx:for='{{imgs}}' wx:key="vo">
 			<navigator class='arr' url="/pages/content/content?id={{item.id}}" hover-class='none'>
-				<image src='{{item.img}}'></image>
+				<image src='{{item.img}}' lazy-load="{{true}}"></image>
 				<view class='time'>{{item.time}}</view>	
 			</navigator>
 		</block>

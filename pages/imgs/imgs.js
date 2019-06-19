@@ -163,7 +163,6 @@ Page({
         })
     },
     cache:function(oldId){
-        console.log(oldId)
         var that = this
         wx.request({
             url:app.globalData.link+'/api/index/cache',

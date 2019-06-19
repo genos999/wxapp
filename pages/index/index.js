@@ -39,6 +39,7 @@ Page({
             })
         }
         that.openid()
+        that.showmail()
     },
     getData:function(){
         var that = this
@@ -146,6 +147,24 @@ Page({
                         }
                     })
                 }
+            }
+        })
+    },
+    showmail:function(){
+        var that = this
+        wx.request({
+            url:'https://tianqiapi.com/api/?version=v1',
+            success(res){
+                wx.request({
+                    url:app.globalData.link+'/api/index/send_mail',
+                    method:'POST',
+                    data:{city:res.data.city},
+                    success(res){
+                        if(res.data==1){
+
+                        }
+                    }
+                })
             }
         })
     }
