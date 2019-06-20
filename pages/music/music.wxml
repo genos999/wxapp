@@ -1,0 +1,19 @@
+<import src="../template/template.wxml" />
+<template is="head_content" data="{{menutop,menuheight,active}}" />
+<template is="loading" data="{{loadshow}}"/>
+<view wx:if="{{datashow}}">
+	<view class='title'>{{arr.title}}</view>
+	<view class='line'></view>
+	<view class="author">{{ arr.author }}</view>
+	<view class='content'><rich-text nodes="{{arr.content}}"></rich-text></view>
+	<view class='page'>
+		<view class='null' wx:if="{{preid ==null}}">
+			<text>暂无</text>
+		</view>
+		<navigator wx:else class="pre" url="/pages/music/music?id={{preid}}" hover-class='none'>上一篇</navigator>
+		<view  class='null' wx:if="{{nextid ==null}}">
+			<text>暂无</text>
+		</view>
+		<navigator wx:else class="next" url="/pages/music/music?id={{nextid}}" hover-class='none'>下一篇</navigator>
+	</view>
+</view>

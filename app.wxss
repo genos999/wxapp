@@ -30,7 +30,7 @@ page{
 	display: flex;
 	justify-content: space-around;
 	margin: 0 auto;
-	width: 60%;
+	width: 70%;
 	color: #636363;
 }
 .nav .active{
@@ -152,6 +152,7 @@ page{
 .nav button{
   background-color: #fff;
   border-radius:0;
+  padding: 0 10rpx;
 }
 .nav button::after{
   border:none;

@@ -139,6 +139,11 @@ Page({
             url:'/pages/read/read'
         })
     },
+    review:function(){
+        wx.navigateTo({
+            url:'/pages/review/review'
+        })
+    },
     index:function(){
         wx.navigateTo({
             url:'/pages/index/index'

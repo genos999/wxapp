@@ -1,6 +1,8 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/review/review",
+        "pages/music/music",
         "pages/imgs/imgs",
         "pages/read/read",
         "pages/content/content",

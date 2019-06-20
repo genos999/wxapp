@@ -1,10 +1,9 @@
 const app = getApp()
 Page({
     data: {
-        active:'read',
+        active:'review',
         menutop:app.globalData.menutop,
         menuheight:app.globalData.menuheight,
-        reads:[],
         link:app.globalData.link,
         datashow:false,
         loadshow:true,
@@ -12,19 +11,20 @@ Page({
         onReachBottom: true,
         num:2,
         oldnum:0,
-        openid:'',
-        oldId:''
+        arr:[],
+        oldId:'',
+        openid:''
     },
     onLoad: function (options) {
         var that = this
-        if(!wx.getStorageSync('reads')){
+        if(!wx.getStorageSync('review')){
             that.getData()
         }else{
             wx.getStorage({
-              key: 'reads',
+              key: 'review',
               success (res) {
                 that.setData({
-                    reads:res.data,
+                    arr:res.data,
                     oldId:res.data[0].id
                 })
                 let oldId = that.data.oldId
@@ -40,28 +40,62 @@ Page({
         }
         that.openid()
     },
+    imgs:function(){
+        wx.navigateTo({
+            url:'/pages/imgs/imgs'
+        })
+    },
+    read:function(){
+        wx.navigateTo({
+            url:'/pages/read/read'
+        })
+    },
+    index:function(){
+        wx.navigateTo({
+            url:'/pages/index/index'
+        })
+    },
+    review:function(){
+        
+    },
     getData:function(){
-    	var that = this
-    	wx.request({
-            url:app.globalData.link+"/api/index/readarr",
+        var that = this
+        wx.request({
+            url:app.globalData.link+'/api/index/review',
             data:{id:that.data.id,num:that.data.num},
-            method:"POST",
+            method:'POST',
             success(res){
                 that.setData({
-                    reads:res.data,
+                    arr:res.data,
                     datashow:true,
                     loadshow:false,
                     oldnum:that.data.num,
                     num:that.data.num+2
                 })
                 wx.setStorage({
-                    key:"reads",
+                    key:"review",
                     data:res.data
                 })
-                console.log('no')
             }
         })
-        
+    },
+    cache:function(oldId){
+        var that = this
+        wx.request({
+            url:app.globalData.link+'/api/index/cache',
+            method:'POST',
+            data:{page:'review',oldId:oldId},
+            success(res){
+                if(res.data==1){
+                    wx.removeStorage({
+                        key:"review",
+                        success (res) {
+                            console.log(res)
+                        }
+                    })
+                }
+            }
+        })
     },
     hidePopup(flag = true) {
         this.setData({
@@ -71,14 +105,6 @@ Page({
     showPopup() {
         this.hidePopup(false);
     },
-    formSubmit: function(e) {
-        var that = this
-        var q = e.detail.value.q
-        wx.navigateTo({
-          url: '/pages/search/search?q='+q
-        })
-        that.hidePopup()
-    },
     onReachBottom: function () {
         var that = this;
         wx.showToast({
@@ -87,17 +113,17 @@ Page({
           duration:2000
         })
         wx.request({
-          url: app.globalData.link+"/api/index/morereadarr",
+          url: app.globalData.link+"/api/index/morereview",
           data: {oldnum:that.data.oldnum},
           method: "POST",
           success: function (res) {
             if(res.data!=''){
-               var list = that.data.reads;
+               var list = that.data.arr;
                 for (var i = 0; i < res.data.length; i++) {
                   list.push(res.data[i]);
                 }
                 that.setData({
-                  reads: list,
+                  arr: list,
                   oldnum:that.data.num,
                   num:that.data.num+2,
 
@@ -116,39 +142,8 @@ Page({
     onShareAppMessage:function(res){
       return{
         title:'终于等到你了，还好没有放弃。',
-        path:"pages/read/read"
+        path:"pages/review/review"
       }
-    },
-    submit:function(e){
-        var that = this
-        let formId = e.detail.formId
-        let openId = that.data.openid
-        wx.request({
-            url:app.globalData.link+'/api/index/dataid',
-            method:'POST',
-            data:{formid:formId,openid:openId},
-            success(res){
-                // console.log('200')
-            }
-        })
-    },
-    imgs:function(){
-        wx.navigateTo({
-            url:'/pages/imgs/imgs'
-        })
-    },
-    read:function(){
-        
-    },
-    index:function(){
-        wx.navigateTo({
-            url:'/pages/index/index'
-        })
-    },
-    review:function(){
-        wx.navigateTo({
-            url:'/pages/review/review'
-        })
     },
     openid:function(){
         var that = this
@@ -168,21 +163,16 @@ Page({
             }
         })
     },
-    cache:function(oldId){
+    submit:function(e){
         var that = this
+        let formId = e.detail.formId
+        let openId = that.data.openid
         wx.request({
-            url:app.globalData.link+'/api/index/cache',
+            url:app.globalData.link+'/api/index/dataid',
             method:'POST',
-            data:{page:'read',oldId:oldId},
+            data:{formid:formId,openid:openId},
             success(res){
-                if(res.data==1){
-                    wx.removeStorage({
-                        key:"reads",
-                        success (res) {
-                            console.log(res)
-                        }
-                    })
-                }
+                // console.log('200')
             }
         })
     }

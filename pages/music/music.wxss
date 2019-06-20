@@ -1,0 +1,58 @@
+.title{
+	margin-top: 160rpx;
+	font-weight: 700;
+	padding: 0 36rpx;
+	font-size: 40rpx;
+}
+.line{
+	margin: 20rpx 36rpx 10rpx 36rpx;
+	border-bottom: 3px solid #000;
+	width: 150rpx;
+}
+.author{
+	font-size: 24rpx;
+    line-height: 60rpx;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 10rpx;
+    margin: 0 40rpx;
+}
+.content{
+	padding: 0 36rpx;
+	margin-top: 30rpx;
+	font-size: 32rpx;
+  margin-bottom: 100rpx;
+}
+.page{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background:#fff;
+  border-top: 1rpx solid #ccc;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.null{
+  color: #999;
+}
+
+/*生成海报*/
+@font-face {
+  font-family: "iconfont"; /* IE9*/
+  src: url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAASQAAsAAAAABwAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFY/p0sjY21hcAAAAYAAAABLAAABcOpZvz1nbHlmAAABzAAAAMQAAADwT+P3+WhlYWQAAAKQAAAALwAAADYSjXj3aGhlYQAAAsAAAAAcAAAAJAfeA4NobXR4AAAC3AAAAAgAAAAICAAAAGxvY2EAAALkAAAABgAAAAYAeAAAbWF4cAAAAuwAAAAgAAAAIAEUAExuYW1lAAADDAAAAUUAAAJtPlT+fXBvc3QAAARUAAAAOwAAAEzUkYJxeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYWCcwMDKwMHUyXSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGBxeGr40ZG7438AQw9zA0AAUZgTJAQDlSwxLeJxjYGBgZWBgYAZiHSBmYWBgDGFgZAABP6AoI1icmYELLM7CoARWwwISf2n4/z+MBPJZwCQDIxvDKOABkzJQHjisIJiBEQCoHgo5AHicVcuxTsJQFIDh858bqF1wQKguOBi8SgimtOEy4dim0anMvpibD0F8AyHhBXwSt6PXMjH+yffLhcjvp/tytSRyKZncipcnCfIskrIhTMiGbjXOJiQpMQYkvelVPxlwlxJjgXfD/r1fEFJixGXaK1dhQ6HvdqCtqxavvBbLOfZNqdeqI7U1u8dl0ah9EGirOiKnHcLbkRsYKXtrZnlE/HQfYyywY5aX3bhmW1Xb//GlzOc82PGEOFhzQrzZ/gz9ATlFLgF4nGNgZGBgAOJZB47ciee3+crAzcIAAte3S9Ui6P87WBiYPYBcDgYmkCgAUMALBQB4nGNgZGBgbvjfwBDDwgACQJKRARUwAQBHCAJrBAAAAAQAAAAAAAAAAHgAAAABAAAAAgBAAAgAAAAAAAIAAAAKAAoAAAD/AAAAAAAAeJxlj01OwzAQhV/6B6QSqqhgh+QFYgEo/RGrblhUavdddN+mTpsqiSPHrdQDcB6OwAk4AtyAO/BIJ5s2lsffvHljTwDc4Acejt8t95E9XDI7cg0XuBeuU38QbpBfhJto41W4Rf1N2MczpsJtdGF5g9e4YvaEd2EPHXwI13CNT+E69S/hBvlbuIk7/Aq30PHqwj7mXle4jUcv9sdWL5xeqeVBxaHJIpM5v4KZXu+Sha3S6pxrW8QmU4OgX0lTnWlb3VPs10PnIhVZk6oJqzpJjMqt2erQBRvn8lGvF4kehCblWGP+tsYCjnEFhSUOjDFCGGSIyujoO1Vm9K+xQ8Jee1Y9zed0WxTU/3OFAQL0z1xTurLSeTpPgT1fG1J1dCtuy56UNJFezUkSskJe1rZUQuoBNmVXjhF6XNGJPyhnSP8ACVpuyAAAAHicY2BigAAuBuyAiZGJkZlBKS01ryIzMS+9IDUvvTK/tLA0Ma88NbMiMy881TkjsaQ4I5GBAQAfgA5QAA==') format('woff');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 270rpx;
+  right: 36rpx;
+}
+.icon-fenxiangpengyouquanweixinWeChatsha:before {
+  content: "\e931";
+  color: #000;
+}

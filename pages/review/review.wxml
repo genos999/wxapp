@@ -1,0 +1,19 @@
+<import src="../template/template.wxml" />
+<form bind:submit="submit" report-submit="true">
+	<template is="head" data="{{menutop,menuheight,active,popup}}" />
+	<template is="loading" data="{{loadshow}}"/>
+	<view class='main' wx:if="{{datashow}}">
+		<view class='catename'>- MUSIC -</view>
+		<block wx:for="{{ arr }}" wx:key="vo">
+			<navigator class='arr' url="/pages/music/music?id={{item.id}}" hover-class='none'>
+				<view class='arr'>
+					<view class="title">{{ item.title }}</view>
+					<view class="author">{{ item.author }}</view>
+					<view class="img"><image src="{{ link }}/{{ item.img }}"></image></view>
+					<!-- <view class="desc"></view> -->
+					<view class="author">{{ item.time }}</view>
+				</view>
+			</navigator>
+		</block>
+	</view>
+</form>
